@@ -1,0 +1,11 @@
+{
+  "name": "gruas-bot",
+  "version": "1.0.0",
+  "main": "api/chat.js",
+  "dependencies": {
+    "@google/generative-ai": "^0.1.0"
+  },
+  "scripts": {
+    "start": "node api/chat.js"
+  }
+}

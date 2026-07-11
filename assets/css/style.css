@@ -1,0 +1,297 @@
+/* =========================================
+   ESTILOS GENERALES Y FUENTES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+:root {
+    --rojo-brand: #e60000;
+    --rojo-oscuro: #b30000;
+    --negro-profundo: #050505;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* =========================================
+   COMPONENTES DE NAVEGACIÓN (NAVBAR)
+   ========================================= */
+.navbar {
+    background-color: var(--negro-profundo) !important;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--rojo-brand) !important;
+}
+
+/* =========================================
+   SECCIÓN INICIO (HERO & CARRUSEL)
+   ========================================= */
+#inicio {
+    position: relative;
+    min-height: 85vh;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.img-carrusel-fondo {
+    object-fit: cover;
+    object-position: center;
+}
+
+#inicio h1 {
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: -1px;
+}
+
+/* Hacer que el desvanecimiento del carrusel sea súper suave y lento */
+.carousel-fade .carousel-item {
+    transition: opacity 1.5s ease-in-out !important;
+}
+
+
+/* =========================================
+   BOTONES Y ELEMENTOS DE ACCIÓN
+   ========================================= */
+.btn {
+    border-radius: 50px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Forzamos todo a la nueva paleta ROJO / NEGRO */
+.btn-primary,
+.btn-success,
+.btn-danger {
+    background-color: var(--rojo-brand) !important;
+    border-color: var(--rojo-brand) !important;
+    color: white !important;
+}
+
+.btn-primary:hover,
+.btn-success:hover,
+.btn-danger:hover {
+    background-color: var(--rojo-oscuro) !important;
+    border-color: var(--rojo-oscuro) !important;
+}
+
+/* =========================================
+   COMPONENTES UI (CARDS Y LOGOS)
+   ========================================= */
+.card {
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.text-primary,
+.bg-primary {
+    background-color: var(--rojo-brand) !important;
+    color: white !important;
+}
+
+/* LOGOS */
+.logo-navbar {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-original {
+    height: 75px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-original:hover {
+    transform: scale(1.05);
+}
+
+/* Magia de CSS para los logos de alcaldías */
+.logo-alcaldia {
+    max-height: 110px;
+    mix-blend-mode: screen;
+    /* Mantiene el fondo negro invisible */
+
+    /* TRUCO: Giramos el color de naranja a rojo (-35deg) y lo hacemos más vibrante */
+    filter: hue-rotate(-35deg) saturate(2.5) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto hover: al pasar el mouse brillan un poco más */
+.logo-alcaldia:hover {
+    transform: scale(1.1);
+    /* Le metemos un poco más de brillo para que resalten al tocarlos */
+    filter: hue-rotate(-35deg) saturate(3) brightness(1.2) drop-shadow(0 6px 10px rgba(230, 0, 0, 0.5));
+}
+
+
+.logo-alcaldia:hover {
+    transform: scale(1.1);
+}
+
+.hover-primary:hover {
+    color: var(--rojo-brand) !important;
+    transition: color 0.3s ease;
+}
+
+/* =========================================
+   EFECTO DIAGONAL (ZONAS DE COBERTURA)
+   ========================================= */
+#cobertura {
+    /* Las tijeras virtuales: Recorta el fondo creando las diagonales */
+    clip-path: polygon(0 4vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
+
+    /* Le damos más espacio arriba y abajo para que el corte no se coma tus logos */
+    padding-top: calc(4vw + 4rem) !important;
+    padding-bottom: calc(4vw + 4rem) !important;
+
+    /* Lo subimos y bajamos un poquito para que se encime con las secciones blancas sin dejar huecos */
+    margin-top: -2vw;
+    margin-bottom: -2vw;
+
+    /* Aseguramos que se mantenga por encima de las otras secciones */
+    position: relative;
+    z-index: 2;
+    background-color: var(--negro-profundo) !important;
+}
+
+/* =========================================
+   EFECTO HOVER GALERÍA Y LIGHTBOX
+   ========================================= */
+.galeria-item {
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+.galeria-item img {
+    transition: transform 0.4s ease-in-out;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.1);
+    /* Zoom de la foto */
+}
+
+/* Capa oscura que aparece al pasar el mouse/dedo */
+.galeria-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+/* Hace visible la capa oscura al pasar el cursor */
+.galeria-item:hover .galeria-overlay {
+    opacity: 1;
+}
+
+/* El iconito del ojo */
+.icono-ojo {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    /* Efecto vidrio borroso moderno */
+    transition: background-color 0.3s;
+}
+
+.galeria-item:hover .icono-ojo {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================
+   SECCIÓN DE RESEÑAS (CARRUSEL)
+   ========================================= */
+.tarjeta-resena {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-resena:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(230, 0, 0, 0.1) !important;
+}
+
+/* Color dorado para las estrellas */
+.text-warning {
+    color: #ffc107 !important;
+}
+
+/* Personalizar los puntitos indicadores del carrusel */
+#carruselTestimonios .carousel-indicators [data-bs-target] {
+    background-color: #a0a0a0;
+    /* Gris apagado cuando no está activo */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+/* Pintar de rojo vibrante el puntito activo */
+#carruselTestimonios .carousel-indicators .active {
+    background-color: var(--rojo-brand) !important;
+    transform: scale(1.2);
+    /* Lo hace un poquito más grande */
+}
+
+/* =========================================
+   ESTILOS DEL CHATBOT IA
+   ========================================= */
+
+/* Personalizar la barra de scroll dentro del chat */
+#chatbot-mensajes::-webkit-scrollbar {
+    width: 6px;
+}
+
+#chatbot-mensajes::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+/* Estilo para los mensajes que enviará el usuario (se inyectarán con JS luego) */
+.mensaje-usuario {
+    background-color: var(--negro-profundo);
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem 0 1rem 1rem;
+    border-right: 4px solid var(--rojo-brand);
+    max-width: 85%;
+    margin-left: auto; /* Empuja el mensaje a la derecha */
+    font-size: 0.875rem; /* Tamaño small */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
